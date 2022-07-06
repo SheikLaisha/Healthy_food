@@ -5,16 +5,12 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 
-
 const app = express();
-const port = process.env.PORT || 3001;
-
+const port = process.env.PORT || 3002;
 require('dotenv').config();
-
 app.use(express.urlencoded( { extended: true } ));
 app.use(express.static('public'));
 app.use(expressLayouts);
-
 app.use(cookieParser('HealthyFoodSecure'));
 app.use(session({
     secret: 'HealthyFoodSecretSession',
@@ -24,11 +20,8 @@ app.use(session({
 app.use(flash());
 app.use(fileUpload());
 
-
 app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
-
 const routes = require('./server/routes/recipeRoutes.js')
 app.use('/', routes);
-
 app.listen(port, ()=> console.log(`Listening to port ${port}`));

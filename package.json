@@ -1,7 +1,6 @@
 {
   "name": "healthy_food",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,5 +23,14 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SheikLaisha/Healthy_food.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SheikLaisha/Healthy_food/issues"
+  },
+  "homepage": "https://github.com/SheikLaisha/Healthy_food#readme",
+  "description": ""
 }

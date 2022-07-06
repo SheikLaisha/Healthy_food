@@ -25,6 +25,7 @@ exports.homepage = async(req, res) => {
 }
 
 
+
 /**
  * GET / categories
  * Categories
@@ -88,7 +89,7 @@ exports.searchRecipe = async(req, res) => {
 
 /**
  * GET / explore-latest
- * Ecplore Latest
+ * Explore Latest
  */
  exports.exploreLatest = async(req, res) => {
   try {
@@ -103,7 +104,7 @@ exports.searchRecipe = async(req, res) => {
 
 /**
  * GET / explore-random
- * Ecplore Random as JSON
+ * Explore Random as JSON
  */
  exports.exploreRandom = async(req, res) => {
   try {
@@ -154,7 +155,6 @@ exports.searchRecipe = async(req, res) => {
         if(err) return res.satus(500).send(err);
       })
     }
-
     const newRecipe = new Recipe({
       name: req.body.name,
       description: req.body.description,
@@ -200,4 +200,33 @@ exports.searchRecipe = async(req, res) => {
   exports.articles = async(req, res) => {
     res.render('articles', { title: 'Healthy Food = Articles'});
    }
+
+
+   /**
+    * UPDATE
+  */
+   async function updateRecipe(){
+    try{
+      const res = await Recipe.updateOne({ name: 'abcd'}, {name: 'pqrs'});
+      res.n;            //no.of documents matched
+      res.nModified;    //no.of documents modified
+    } catch (error) {
+      console.log(error);
+
+    }
+   } 
+   updateRecipe();
+
+   
+   /**
+    * DELETE
+  */
+    async function deleteRecipe(){
+      try{
+        await Recipe.deleteOne( {name: 'pqrs'});
+      } catch (error) {
+        console.log(error);
+      }
+     } 
+     deleteRecipe();
   
